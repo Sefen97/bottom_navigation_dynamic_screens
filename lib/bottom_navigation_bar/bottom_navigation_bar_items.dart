@@ -1,46 +1,27 @@
 import 'package:flutter/material.dart';
 
-BottomNavigationBarItem homeItem() => const BottomNavigationBarItem(
-    icon: Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Icon(Icons.home),
-    ),
-    label: "Home",
-    activeIcon: Padding(padding: EdgeInsets.all(5.0), child: Icon(Icons.home)));
+BottomNavigationBarItem bottomNavigationBarHomeItem() =>
+    _item(label: "Home", icon: Icons.home);
 
-BottomNavigationBarItem maintenanceItem() => const BottomNavigationBarItem(
-    icon: Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Icon(Icons.settings_applications_outlined),
-    ),
-    label: "Maintenance",
-    activeIcon: Padding(
-        padding: EdgeInsets.all(5.0),
-        child: Icon(Icons.settings_applications_outlined)));
+BottomNavigationBarItem bottomNavigationBarMaintenanceItem() =>
+    _item(label: "Maintenance", icon: Icons.settings_applications_outlined);
 
-BottomNavigationBarItem wallItem() => const BottomNavigationBarItem(
-    icon: Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Icon(Icons.date_range),
-    ),
-    label: "Wall",
-    activeIcon:
-        Padding(padding: EdgeInsets.all(5.0), child: Icon(Icons.date_range)));
+BottomNavigationBarItem bottomNavigationBarWallItem() =>
+    _item(label: "Wall", icon: Icons.date_range);
 
-BottomNavigationBarItem servicesItem() => const BottomNavigationBarItem(
-    icon: Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Icon(Icons.medical_services_outlined),
-    ),
-    label: "Services",
-    activeIcon: Padding(
-        padding: EdgeInsets.all(5.0),
-        child: Icon(Icons.medical_services_outlined)));
+BottomNavigationBarItem bottomNavigationBarServicesItem() =>
+    _item(label: "Services", icon: Icons.medical_services_outlined);
 
-BottomNavigationBarItem moreItem() => const BottomNavigationBarItem(
-    icon: Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Icon(Icons.more_horiz_rounded),
-    ),
-    label: "More",
-    activeIcon: Padding(padding: EdgeInsets.all(5.0), child: Icon(Icons.more)));
+BottomNavigationBarItem bottomNavigationBarMoreItem() =>
+    _item(label: "More", icon: Icons.more);
+
+BottomNavigationBarItem _item(
+        {required String label, required IconData icon}) =>
+    BottomNavigationBarItem(
+        icon: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Icon(icon),
+        ),
+        label: label,
+        activeIcon:
+            Padding(padding: const EdgeInsets.all(5.0), child: Icon(icon)));

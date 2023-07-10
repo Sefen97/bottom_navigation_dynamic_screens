@@ -1,4 +1,4 @@
-enum TabbarEnum {
+enum BottomNavigationBarEnum {
   home,
   maintenance,
   wall,

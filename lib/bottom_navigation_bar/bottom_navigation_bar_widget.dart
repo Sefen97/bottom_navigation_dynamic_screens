@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/bottom_navigation_bar/permissions_entity.dart';
-import 'package:untitled1/bottom_navigation_bar/tabbar_enum.dart';
-import 'package:untitled1/bottom_navigation_bar/tabbar_maps.dart';
+import 'package:untitled1/bottom_navigation_bar/bottom_navigation_bar_enum.dart';
+import 'package:untitled1/bottom_navigation_bar/bottom_navigation_bar_map_enum_to_tabbar_item.dart';
+import 'package:untitled1/bottom_navigation_bar/bottom_navigation_bar_map_id_to_enum.dart';
+import 'package:untitled1/bottom_navigation_bar/bottom_navigation_bar_map_enum_to_screens.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   final List<permissionsEntity> permissions;
@@ -53,14 +55,15 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   }
 
   void _init() {
-    for (var rolesElement in widget.permissions) {
-      TabbarEnum? tabbarEnumElement = tabbarMapIdToEnum[rolesElement.id];
+    for (var permissionsElement in widget.permissions) {
+      BottomNavigationBarEnum? tabbarEnumElement =
+          tabbarMapIdToEnum[permissionsElement.id];
       if (tabbarEnumElement != null) {
-        BottomNavigationBarItem? tabbarItems =
-            tabbarMapEnumToTabbarItem[tabbarEnumElement];
-        Widget? screen = tabbarMapEnumToScreen[tabbarEnumElement];
-        if (tabbarItems != null) {
-          _items.add(tabbarItems);
+        BottomNavigationBarItem? bottomNavigationBarItems =
+            bottomNavigationBarMapEnumToTabbarItem[tabbarEnumElement];
+        Widget? screen = bottomNavigationBarMapEnumToScreens[tabbarEnumElement];
+        if (bottomNavigationBarItems != null) {
+          _items.add(bottomNavigationBarItems);
         }
         if (screen != null) {
           _pages.add(screen);
